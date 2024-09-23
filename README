@@ -1,0 +1,70 @@
+# Personal Account Management
+
+This repository contains a Java implementation of the `PersonalAccount` class, which represents a personal bank account. The class manages various attributes and transactions such as deposits and withdrawals, and stores the transaction history for learning purposes.
+
+## Features
+
+### 1. **TransactionType Enum**:
+   - **Constants**:
+     - `DEPOSIT`: Represents a deposit transaction.
+     - `WITHDRAWAL`: Represents a withdrawal transaction.
+
+### 2. **Amount Class**:
+   - **Attributes**:
+     - `amount` (double): The transaction amount.
+     - `transactionType` (TransactionType): Specifies the type of transaction (either DEPOSIT or WITHDRAWAL).
+
+### 3. **PersonalAccount Class**:
+   - **Attributes**:
+     - `accountNumber` (int): A unique identifier for the account.
+     - `accountHolder` (String): The name of the account holder.
+     - `balance` (double): The current balance in the account.
+     - `transactions` (List\<Amount>): A list to store deposit and withdrawal transactions.
+
+### 4. **Methods**:
+   - **Constructors**:
+     - `PersonalAccount(int accountNumber, String accountHolder)`: Initializes the account with the given account number and holder name, setting the balance to 0.0.
+   
+   - **Transaction Methods**:
+     - `deposit(double amount)`: Adds a deposit transaction to the account and updates the balance.
+     - `withdraw(double amount)`: Adds a withdrawal transaction, ensuring that the balance doesn't go negative.
+   
+   - **Utility Methods**:
+     - `getBalance()`: Returns the current balance of the account.
+     - `getAccountNumber()`: Returns the account number.
+     - `getAccountHolder()`: Returns the account holder's name.
+     - `printTransactionHistory()`: Displays the transaction history, including the type and amount of each transaction.
+
+## Usage
+You can test the `PersonalAccount` class by creating account objects, depositing and withdrawing funds, and printing the transaction history. 
+
+### Sample Code:
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Creating a new personal account
+        PersonalAccount account = new PersonalAccount(10324231, "Kazakbaev Azizbek");
+        
+        // Deposit and withdraw transactions
+        account.deposit(1000.00);
+        account.withdraw(200.00);
+        
+        // Print transaction history and balance
+        account.printTransactionHistory();
+        System.out.println("Current Balance: $" + account.getBalance());
+    }
+}
+```
+
+## UML Diagram
+A UML class diagram is included, showing the structure of the `PersonalAccount`, `Amount`, and `TransactionType` classes, as well as their relationships.
+
+## Testing
+The project includes test cases that validate the following scenarios:
+- Depositing funds into the account.
+- Withdrawing funds from the account.
+- Attempting to withdraw more than the available balance.
+- Verifying that the transaction history and balance updates are accurate.
+
+## License
+This project is licensed under the Ala-Too License. You are free to use, modify, and distribute it for educational or personal purposes.
